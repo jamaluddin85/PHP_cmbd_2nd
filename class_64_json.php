@@ -12,7 +12,7 @@ $data = [
 
 // convert PHP data into json data
 $jsonData = json_encode($data);
-echo $jsonData;
+echo "<p style='color: red'>This json data: </p> ". $jsonData;
 
 // convert json data into PHP data
 $phpData = json_decode($jsonData);

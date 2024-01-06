@@ -14,7 +14,8 @@ if(isset($_POST["submit1"])){
     $mobile = validData($_POST["mobile"]);
     $dob = validData($_POST["dob"]);
     $user_message = validData($_POST["user_message"]);
-
+    $divi = validData($_POST["divi"]);
+   
 
     if(empty($name)){
         $message = "Name is required";
@@ -51,6 +52,13 @@ if(isset($_POST["submit1"])){
     }else{
         $correctDob= $dob;
     }
+
+    if(empty($divi)){
+        $divi_message = "Please select your division"; 
+    }else{
+        $correctDivi= $divi;
+    }
+
 
 }
 
@@ -120,7 +128,23 @@ if(isset($_POST["submit1"])){
                 <?= $gemessage ?? null ?>
             </div>
         </div>
-        
+        <br>
+        <!-- for option   -->
+        <div>
+            <label for="divi"> Select your devision</label>
+            <br>
+            <select name="divi" id="" style="padding: 6px 5px; ">
+                <option value="">--Select--</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Chittagong">Chittagong</option>
+            </select>
+
+            <div style="color: red;">
+                <?= $divi_message ?? null ?>
+            </div>
+        </div>
 
         <!-- for user message or textarea  -->
         <h4>Please write your comments here</h4>
@@ -169,6 +193,12 @@ if(isset($_POST["submit1"])){
 
     if(!empty($_POST["dob"])){
         echo "Your date of birth is : ". $dob ?? null;
+    }
+
+    echo "<br>"; 
+
+    if(!empty($_POST["divi"])){
+        echo "Your division is : ". $divi ?? null;
     }
 
     echo "<br>";

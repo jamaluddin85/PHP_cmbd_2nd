@@ -135,10 +135,10 @@ if(isset($_POST["submit1"])){
             <br>
             <select name="divi" id="" style="padding: 6px 5px; ">
                 <option value="">--Select--</option>
-                <option value="Dhaka">Dhaka</option>
-                <option value="Rajshahi">Rajshahi</option>
-                <option value="Khulna">Khulna</option>
-                <option value="Chittagong">Chittagong</option>
+                <option value="Dhaka" <?= isset($correctDivi) && $correctDivi == "Dhaka" ? "selected" : null?> >Dhaka</option>
+                <option value="Rajshahi" <?= isset($correctDivi) && $correctDivi == "Rajshahi" ? "selected" : null?>>Rajshahi</option>
+                <option value="Khulna" <?= isset($correctDivi) && $correctDivi == "Khulna" ? "selected" : null?>>Khulna</option>
+                <option value="Chittagong" <?= isset($correctDivi) && $correctDivi == "Chittagong" ? "selected" : null?>>Chittagong</option>
             </select>
 
             <div style="color: red;">

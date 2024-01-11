@@ -5,34 +5,32 @@
         $fileTmpName = $_FILES['file']['tmp_name'];
 
         //validation
-        $allowedFile = ['jpg', 'jpeg', 'png'];
+        $allowedFile = ['jpg', 'jpeg', 'png', 'pdf'];
         $fileExt = explode('.', $fileName);
         $fileExtName = strtolower(end($fileExt));
        
 
         if(empty($fileName)){
-            $error_message = 'please upload a file!';
+            $error_message = 'please select a file!';
         }elseif(!in_array($fileExtName, $allowedFile)){
             $error_message = 'please select a right file ext.!';
         }else{
             if(!is_dir('uploads')){//for check directory.have it or not
                 mkdir('uploads'); // for make a directory
             }
+
+            //for create file new name
+            $fileNewNmae = str_shuffle(date('hisAFdYDyl')). uniqid('',true).'.'.$fileExtName;
+            
+            //for file upload 
+            $fileUpload = move_uploaded_file($fileTmpName, 'uploads/' . $fileNewNmae);
+
+            if($fileUpload){
+                echo 'File upload successfully! ';
+            }else{
+                echo 'File do not upload successfully! ';
+            }        
         }
-
-        //for create file new name
-        $fileNewNmae = str_shuffle(date('hisAFdYDyl')). uniqid('',true).'.'.$fileExtName;
-        
-        //for file upload 
-        $fileUpload = move_uploaded_file($fileTmpName, 'uploads/' . $fileNewNmae);
-
-        if($fileUpload){
-            echo 'File upload successfully! ';
-        }else{
-            echo 'File do not upload successfully! ';
-        }
-
-
     }
 
 ?>

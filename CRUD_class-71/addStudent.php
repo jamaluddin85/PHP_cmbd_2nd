@@ -22,7 +22,15 @@ if(isset($_POST['ast'])){
 }
 ?>
 
+<form action="" method="post">
+    <input type="text" placeholder="Student Name" name="name" required minlength="3" >
 
+    <br>
+
+    <input type="text" placeholder="Student City" name="city" required  >
+    <br>
+    <input type="submit" value="Add Student" name="ast">
+</form>
 
 <?php 
 require_once("./footer.php");
